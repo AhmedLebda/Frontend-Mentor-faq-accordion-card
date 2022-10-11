@@ -13,13 +13,17 @@ showAnswer.forEach((element) => {
         const answerHeight = answer.getBoundingClientRect().height;
         const answerContainer = e.currentTarget.children[1];
         const question = e.currentTarget.children[0].children[0];
+        const questionImage = e.currentTarget.children[0].children[1];
 
+        console.log(questionImage);
         if (answerContainer.style.height === "0px") {
             answerContainer.style.height = `${answerHeight}px`;
             question.classList.add("question-active");
+            questionImage.style.transform = `rotateX(180deg)`;
         } else {
             answerContainer.style.height = `0px`;
             question.classList.remove("question-active");
+            questionImage.style.transform = `rotateX(0deg)`;
         }
     };
 });
